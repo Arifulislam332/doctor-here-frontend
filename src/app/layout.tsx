@@ -18,7 +18,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className={rubik.className}>
         <main className="flex flex-col">
           <Header />
-          <div className="mx-auto container flex-1">{children}</div>
+          <div className="flex-1">{children}</div>
         </main>
       </body>
     </html>

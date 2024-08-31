@@ -7,19 +7,41 @@ import {
   Youtube,
 } from "lucide-react";
 import Link from "next/link";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { Button } from "./ui/button";
 
 const HeaderInfo = () => {
   return (
     <>
-      <div className="flex justify-between container mx-auto items-center font-medium py-3">
+      <div className="flex justify-between container mx-auto items-center font-medium">
         <span className="flex gap-2 items-center">
           <Phone size={20} className="text-cyan-600" />
           +008888
         </span>
-        <span className="flex gap-2 items-center">
-          <AlarmCheck size={20} className="text-cyan-600" />
-          Services Time
+        <span>
+          <HoverCard>
+            <HoverCardTrigger asChild>
+              <Button variant="link" className="flex gap-2 items-center">
+                <AlarmCheck className="text-cyan-600" size={20} />
+                Services Time
+              </Button>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <ul
+                style={{
+                  listStyleType: "circle",
+                  marginLeft: "20px",
+                  color: "#0891b2",
+                }}
+              >
+                <li>Sun-Thu 09:00-08:00</li>
+                <li>Friday - offday</li>
+              </ul>
+            </HoverCardContent>
+          </HoverCard>
         </span>
+
+        {/*  */}
 
         <div className="flex items-center gap-5 text-cyan-600">
           <Link href="https://www.facebook.com" target="_blank">
