@@ -7,10 +7,10 @@ import { AlignJustify } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="flex flex-col h-[118px] items-center">
+    <header className="flex flex-col h-[118px] items-center bg-white">
       <HeaderInfo />
       <Separator />
-      <div className="flex justify-between items-center gap-10 container mx-auto py-3">
+      <div className="flex justify-between items-center gap-10 container mx-auto py-3 px-5 md:px-0">
         <Link href="/" className="flex gap-2 items-center">
           <div className="w-12 h-12 overflow-hidden rounded-full">
             <Image

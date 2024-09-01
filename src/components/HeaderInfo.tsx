@@ -13,7 +13,7 @@ import { Button } from "./ui/button";
 const HeaderInfo = () => {
   return (
     <>
-      <div className="flex justify-between container mx-auto items-center font-medium">
+      <div className="flex justify-between container mx-auto items-center font-medium px-5 md:px-0">
         <span className="flex gap-2 items-center">
           <Phone size={20} className="text-cyan-600" />
           +008888
@@ -43,7 +43,7 @@ const HeaderInfo = () => {
 
         {/*  */}
 
-        <div className="flex items-center gap-5 text-cyan-600">
+        <div className="flex items-center gap-3 md:gap-5 text-cyan-600">
           <Link href="https://www.facebook.com" target="_blank">
             <Facebook size={20} />
           </Link>
