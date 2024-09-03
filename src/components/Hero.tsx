@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Hero = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
     <div className="h-[calc(100vh-118px)] w-full relative">
       <video
@@ -26,11 +28,20 @@ const Hero = () => {
           journey to better health. Schedule your appointment today and
           experience the difference.
         </p>
-        <Link href="/user-profile">
-          <Button className="bg-cyan-600 hover:bg-cyan-700 md:text-xl">
+        {isAuthenticated ? (
+          <Link href="/user-profile">
+            <Button className="bg-cyan-600 hover:bg-cyan-700 md:text-xl">
+              Appoinment
+            </Button>
+          </Link>
+        ) : (
+          <Button
+            onClick={async () => loginWithRedirect()}
+            className="bg-cyan-600 hover:bg-cyan-700 md:text-xl"
+          >
             Appoinment
           </Button>
-        </Link>
+        )}
       </div>
     </div>
   );

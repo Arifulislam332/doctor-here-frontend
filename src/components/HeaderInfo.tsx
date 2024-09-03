@@ -13,14 +13,14 @@ import { Button } from "./ui/button";
 const HeaderInfo = () => {
   return (
     <>
-      <div className="flex justify-between container mx-auto items-center font-medium px-5 md:px-0">
+      <div className="flex justify-between container mx-auto items-center font-medium px-10 md:px-0">
         <span className="flex gap-2 items-center">
           <Phone size={20} className="text-cyan-600" />
           +008888
         </span>
         <span>
           <HoverCard>
-            <HoverCardTrigger asChild>
+            <HoverCardTrigger>
               <Button variant="link" className="flex gap-2 items-center">
                 <AlarmCheck className="text-cyan-600" size={20} />
                 Services Time
@@ -35,13 +35,13 @@ const HeaderInfo = () => {
                 }}
               >
                 <li>Sun-Thu 09:00-08:00</li>
-                <li>Friday - offday</li>
+                <li>Friday - off day</li>
               </ul>
             </HoverCardContent>
           </HoverCard>
         </span>
 
-        {/*  */}
+        {/* SOCIAL LINKS */}
 
         <div className="flex items-center gap-3 md:gap-5 text-cyan-600">
           <Link href="https://www.facebook.com" target="_blank">

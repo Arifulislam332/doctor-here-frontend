@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import MyAuth0Provider from "@/providers/MyAuth0Provider";
 
 const rubik = Poppins({
   subsets: ["latin"],
@@ -14,14 +15,16 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body className={rubik.className}>
-        <main className="flex flex-col">
-          <Header />
-          <div className="flex-1">{children}</div>
-        </main>
-      </body>
-    </html>
+    <MyAuth0Provider>
+      <html lang="en">
+        <body className={rubik.className}>
+          <main className="flex flex-col">
+            <Header />
+            <div className="flex-1">{children}</div>
+          </main>
+        </body>
+      </html>
+    </MyAuth0Provider>
   );
 };
 
