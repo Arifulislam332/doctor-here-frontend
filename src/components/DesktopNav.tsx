@@ -5,33 +5,54 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 
 const DesktopNav = () => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
   return (
     <div className="flex items-center gap-5">
       <ul className="flex gap-5 items-center font-medium">
         <li>
-          <a href="/">Home</a>
+          <Link
+            className="hover:text-cyan-600 duration-300 ease-in-out"
+            href="/"
+          >
+            Home
+          </Link>
         </li>
         <li>
-          <a href="/services">Services</a>
+          <Link
+            className="hover:text-cyan-600 duration-300 ease-in-out"
+            href="/services"
+          >
+            Services
+          </Link>
         </li>
         <li>
-          <a href="/about">About</a>
+          <Link
+            className="hover:text-cyan-600 duration-300 ease-in-out"
+            href="/user-appoinment"
+          >
+            Appoinment
+          </Link>
         </li>
         <li>
-          <a href="/contact">Contact</a>
+          <Link
+            className="hover:text-cyan-600 duration-300 ease-in-out"
+            href="/about"
+          >
+            About
+          </Link>
         </li>
       </ul>
       {isAuthenticated ? (
-        <Link href="/user-profile">
-          <Button className="bg-cyan-600 hover:bg-cyan-700 text-xl">
-            Appoinment
-          </Button>
-        </Link>
+        <Button
+          onClick={() => logout()}
+          className="bg-cyan-600 hover:bg-cyan-700 font-bold"
+        >
+          Log Out
+        </Button>
       ) : (
         <Button
           onClick={async () => loginWithRedirect()}
-          className="bg-cyan-600 hover:bg-cyan-700 text-xl"
+          className="bg-cyan-600 hover:bg-cyan-700 font-bold"
         >
           Log In
         </Button>

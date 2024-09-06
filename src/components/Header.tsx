@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../app/fav-icon.png";
+import logo from "../../public/images/fav-icon.png";
 import DesktopNav from "./DesktopNav";
 import HeaderInfo from "./HeaderInfo";
 import MobileNav from "./MobileNav";
@@ -10,7 +10,7 @@ import { Separator } from "./ui/separator";
 
 const Header = () => {
   return (
-    <header className="flex flex-col h-[118px] items-center bg-white">
+    <header className="flex flex-col h-[118px] items-center bg-white shadow-md">
       <HeaderInfo />
       <Separator />
       <div className="flex justify-between items-center container mx-auto py-3 px-10 md:px-0">

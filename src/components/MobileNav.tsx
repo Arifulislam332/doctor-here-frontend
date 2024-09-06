@@ -12,7 +12,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 
 const MobileNav = () => {
-  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, user, logout } = useAuth0();
 
   return (
     <Sheet>
@@ -41,18 +41,25 @@ const MobileNav = () => {
             Home
           </Link>
 
-          {/* BUTTON */}
+          <Link
+            className=" bg-gray-100 px-5 py-2 rounded-lg hover:bg-gray-200 hover:text-cyan-600 duration-300 ease-in-out"
+            href="/user-appoinment"
+          >
+            Appoinment
+          </Link>
 
+          {/* BUTTON */}
           {isAuthenticated ? (
-            <Link className="flex" href="/user-profile">
-              <Button className="flex-1 bg-cyan-600 hover:bg-cyan-700 text-xl">
-                Appoinment
-              </Button>
-            </Link>
+            <Button
+              onClick={() => logout()}
+              className="flex-1 bg-cyan-600 hover:bg-cyan-700 font-bold"
+            >
+              Log Out
+            </Button>
           ) : (
             <Button
               onClick={async () => loginWithRedirect()}
-              className="bg-cyan-600 hover:bg-cyan-700 text-xl flex-1"
+              className="bg-cyan-600 hover:bg-cyan-700 font-bold flex-1"
             >
               Log In
             </Button>
