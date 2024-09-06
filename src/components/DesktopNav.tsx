@@ -7,33 +7,19 @@ import { Button } from "./ui/button";
 const DesktopNav = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
-    //       </div>
-    //     </SheetContent>
-    //   </Sheet>
-    // );
-    // };
-
     <div className="flex items-center gap-5">
       <ul className="flex gap-5 items-center font-medium">
         <li>
-          <a href="/" className="nav_link_items">
-            Home
-          </a>
+          <a href="/">Home</a>
         </li>
         <li>
-          <a href="/services" className="nav_link_items">
-            Services
-          </a>
+          <a href="/services">Services</a>
         </li>
         <li>
-          <a href="/about" className="nav_link_items">
-            About
-          </a>
+          <a href="/about">About</a>
         </li>
         <li>
-          <a href="/contact" className="nav_link_items">
-            Contact
-          </a>
+          <a href="/contact">Contact</a>
         </li>
       </ul>
       {isAuthenticated ? (

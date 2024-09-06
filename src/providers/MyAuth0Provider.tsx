@@ -1,22 +1,28 @@
 "use client";
 
+import { useCreateUser } from "@/hooks/useCreateUser";
 import { AppState, Auth0Provider, User } from "@auth0/auth0-react";
 import { useRouter } from "next/navigation";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, use } from "react";
 
 const MyAuth0Provider = ({ children }: PropsWithChildren) => {
   const domain = process.env.NEXT_PUBLIC_AUTH0_DOMAIN;
   const clientId = process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID;
   const callbackUri = process.env.NEXT_PUBLIC_AUTH0_URI;
 
+  const { createUser } = useCreateUser();
+
   if (!domain || !clientId || !callbackUri) {
     throw new Error("Unable to initialize auth0");
   }
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const onRedirectCallback = (appState?: AppState, user?: User) => {
     // router.push(appState?.returnTo || "/auth-callback");
+    if (user?.sub && user?.email) {
+      createUser({ auth0Id: user.sub, email: user.email });
+    }
     console.log(user);
   };
 

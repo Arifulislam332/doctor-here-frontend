@@ -63,8 +63,4 @@
   body {
     @apply bg-background text-foreground;
   }
-
-  /* .nav_link_items::after {
-    @apply
-  } */
 }
