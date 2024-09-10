@@ -44,7 +44,9 @@ const DesktopNav = () => {
       </ul>
       {isAuthenticated ? (
         <Button
-          onClick={() => logout()}
+          onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
           className="bg-cyan-600 hover:bg-cyan-700 font-bold"
         >
           Log Out

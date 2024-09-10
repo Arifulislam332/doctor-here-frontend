@@ -51,7 +51,9 @@ const MobileNav = () => {
           {/* BUTTON */}
           {isAuthenticated ? (
             <Button
-              onClick={() => logout()}
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
               className="flex-1 bg-cyan-600 hover:bg-cyan-700 font-bold"
             >
               Log Out
