@@ -1,7 +1,11 @@
 "use client";
 
+import UserAppoinmentForm from "@/components/UserAppoinmentForm";
+import { useCreateUserAppoinment } from "@/hooks/useCreateUserAppoinment";
+
 const UserAppoinment = () => {
-  return <div>UserAppoinment</div>;
+  const { createAppoinment, isLoading } = useCreateUserAppoinment();
+  return <UserAppoinmentForm isLoading={isLoading} onSave={createAppoinment} />;
 };
 
 export default UserAppoinment;
